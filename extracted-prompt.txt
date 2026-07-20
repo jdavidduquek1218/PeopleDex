@@ -1,0 +1,191 @@
+Super Prompt — Peopledex (referencia visual y funcional: Crystal Knows)
+Contexto y objetivo
+Construir la página web / producto digital Peopledex, una plataforma de perfiles de personalidad DISC, con dos frentes de negocio (B2B corporativo/contratación y B2C individual), inspirado directamente en la estructura, tono visual y arquitectura de información de Crystal Knows (crystalknows.com). El objetivo de este prompt es servir como brief maestro para diseñar y construir la landing page y el dashboard del producto.
+0. Nombre del producto
+Peopledex.
+Se escribe y se pronuncia igual en inglés y en español (sin sonidos que generen fricción al decirlo en un pitch o conversación de venta en LATAM).
+Refuerza la idea de &quot;índice/mapa de personas&quot; — coherente con la promesa de un dashboard vivo y consultable, no un informe de una sola lectura.
+Usar siempre en mayúscula inicial: Peopledex (no PeopleDex ni PEOPLEDEX en cuerpo de texto; el logo puede tener su propio tratamiento tipográfico aparte).
+1. ICP (Ideal Customer Profile)
+Nombre de referencia: &quot;Carlos&quot; — el líder que tiene la señal, pero no sabe leerla.
+Líder administrativo, reclutador, líder de RRHH, o cualquier rol encargado de contratación dentro de una organización.
+Organizaciones con más de 20 empleados.
+Al menos un proceso de selección activo al mes (flujo de contratación constante, no puntual).
+La rotación de personal les representa un costo real (tiempo, dinero, desgaste de equipo).
+Ya usaron herramientas psicométricas antes (no es la primera vez que ven un test).
+Ya tuvieron malas experiencias por lecturas incorrectas o superficiales de esos resultados: contrataron a alguien que luego salió de la organización, y en retrospectiva la señal ya estaba en la prueba.
+2. Dolor principal
+Carlos recibe información psicométrica que cuesta interpretar y no le dice qué hacer con ella.
+Dolor 1 — Legibilidad técnica sin traducción al negocio. Las herramientas psicométricas entregan datos con rigor desde la psicología (ej. &quot;tolerancia a la frustración: 60%&quot;), pero sin explicar si eso es bueno, malo o la media, y sin traducirlo a una decisión de negocio. El resultado es ilegible para alguien que no es psicólogo.
+Dolor 2 — Falta de match rol-perfil. Los informes describen el perfil de la persona, pero no lo cruzan contra los requerimientos del cargo específico. No dicen si ese perfil encaja o no con ese rol en particular.
+3. Propuesta de solución
+Un producto fácil de usar, basado en one-pages / vistas de una sola pantalla, que resuman de forma clara y accionable:
+Banderas rojas del perfil.
+Banderas verdes del perfil.
+Match entre el rol y el perfil psicométrico.
+Dirección clara: ¿esta persona encaja o no en este rol, y por qué?
+Formato de entrega: no es un PDF descargable — es un dashboard web vivo, siguiendo el modelo de Crystal Knows, donde la información permanece disponible, consultable y accionable en el tiempo (no un documento estático que se lee una vez y se archiva).
+4. Modelo de producto: Freemium + Premium
+4.1 Informe básico / Freemium (individual, autoconocimiento)
+Contenido:
+Descripción especializada de la combinación temperamental del usuario (ej. qué significa ser &quot;SC&quot;).
+Resumen de lo que significa tener cada letra dominante.
+Explicación individual de cada letra (qué significa ser S, qué significa ser C, etc.).
+Principales fortalezas.
+Principales debilidades.
+4.2 Informe premium / corporativo (orientado a contratación y equipos)
+A. One-page de contratación
+Banderas rojas resumidas de la persona.
+Relación explícita entre esas banderas rojas y el perfil/rol evaluado.
+Banderas verdes.
+Explicación de cómo esas señales hacen match con el rol.
+Alertas claras y accionables para decidir con más criterio.
+Ejemplo de tono esperado: &quot;Bandera roja: tiende a abrumarse fácilmente ante alto estrés. Rol: abogado middle en firma de alta intensidad. Riesgo: posible desgaste o bajo ajuste al entorno.&quot;
+B. One-page del perfil de la persona
+Temperamentos dominantes.
+Motivación básica.
+Deseos.
+Qué necesita aprender / desarrollar.
+Valor que aporta al equipo.
+Fortalezas principales.
+Áreas débiles o faltantes principales.
+Estilo de toma de decisiones.
+Comportamiento bajo presión.
+Qué la motiva.
+Cómo usa el tiempo.
+Estilo de comunicación.
+Respuesta emocional.
+En qué contexto sería más eficaz.
+C. One-page del perfil de trabajo (cómo relacionarse con esta persona) Según el temperamento dominante (D, I, S o C):
+Cómo relacionarse con esa persona.
+Cómo persuadirla.
+Cómo dirigirla.
+Cómo estar en desacuerdo con ella.
+Puntos de flexibilidad que debería trabajar según su perfil DISC.
+D. Páginas adicionales de profundidad (detalle extendido de la persona)
+Página de detalle 1:
+Puntos fuertes.
+Situación ideal.
+Qué necesita que los demás le provean.
+Áreas de crecimiento personal.
+Otros rasgos clave en formato de listado.
+Página de detalle 2:
+Motivación básica.
+Situación ideal.
+Qué acepta / qué rechaza.
+Puntos fuertes.
+Puntos débiles.
+Comportamiento bajo presión.
+Cómo sacar mejor provecho de la persona.
+Área relacional.
+Toma de decisiones.
+Uso del tiempo.
+Dimensión emocional.
+Dimensión social.
+Cómo convencerla.
+Tensiones típicas.
+Necesidades relacionales.
+5. Diferenciador clave: base de conocimiento viva
+A diferencia de un informe estático, el dashboard permite que el líder regrese cuantas veces necesite a:
+Buscar y encontrar rápidamente la información de una persona de su equipo.
+Refrescar memoria antes de una conversación importante.
+Consultar un chat interno tipo LLM, entrenado sobre el perfil de esa persona específica, para resolver dudas puntuales en el momento en que surgen.
+Ejemplos de preguntas al chat:
+&quot;¿Cómo puedo corregir a esta persona sin que se ponga a la defensiva?&quot;
+&quot;¿Qué hago si quiero decirle que su rendimiento bajó este trimestre?&quot;
+&quot;¿Cómo debería comunicarle este feedback dado su perfil?&quot;
+Esto convierte el perfil DISC en una base de conocimiento relacional viva para el equipo, no en un documento que se lee una vez y se olvida.
+6. Referencia de producto: Crystal Knows
+La estructura, arquitectura de información y filosofía de producto deben inspirarse fuertemente en Crystal Knows (crystalknows.com):
+Hero: promesa central de valor + visual de &quot;tarjeta de perfil&quot; flotante con foto, nombre, tipo de personalidad, rasgos en pills/tags, y estado de progreso (&quot;3 of 6 assessments complete&quot;).
+Secciones numeradas por caso de uso (ellos usan 01–05: For You, For Sales, For Hiring, For Coaching, For Teams), cada una con: número grande decorativo, título corto y contundente, párrafo descriptivo breve, link &quot;Learn more&quot;, y un mockup de producto real al lado (browser chrome con URL tipo crystalknows.com/hiring, sidebar de navegación + panel de contenido).
+&quot;One profile, put to work everywhere&quot;: mensaje de que un solo perfil alimenta múltiples contextos (ventas, contratación, coaching, equipos).
+Dashboard de perfil individual: foto, nombre, tipo/etiqueta corta, pills de rasgos (ej. STRATEGIC, DIRECT, CURIOUS), resumen narrativo en 2-3 líneas, sliders de rasgos de personalidad (extremo izq./extremo der. con marcador), bloques temáticos en tarjetas: Communication Style (bullets accionables), Core Motivations (Driven by / Tries to avoid en dos columnas), Energy Use (Charged by / Drained by en dos columnas), Relational tips por tipo de contraparte (con foto + &quot;Tip: ...&quot;).
+Prueba social: testimonios grandes en cita destacada + testimonios secundarios más pequeños con foto y cargo.
+CTA final: título grande, subtítulo breve, botón primario sólido + botón secundario outline, con microcopy de confianza debajo (&quot;Free to start&quot;, &quot;No card required&quot;, &quot;Ten minutes to start&quot;).
+Footer: columnas por categoría (Product, Learn, Free Tests, Company).
+7. Dirección visual y de tono (a definir/pulir, basada en las capturas)
+Tipografía serif elegante para titulares grandes + sans-serif limpia para cuerpo de texto.
+Paleta cálida: verde bosque para CTA primario y acentos de marca, terracota/naranja para acentos secundarios (pills, íconos), fondos neutros muy claros (blanco roto / crema).
+Componentes tipo &quot;browser mockup&quot; (barra de URL simulada) para mostrar el producto en contexto dentro de la landing.
+Cards con bordes suaves, sombra sutil, esquinas redondeadas, mucho aire/whitespace.
+Iconografía simple de línea dentro de cuadros con fondo de color suave (ej. ícono de rayo para &quot;Energy Use&quot;, ícono de brújula para &quot;Core Motivations&quot;).
+8. Adaptación al ICP propio (diferencial vs. Crystal Knows)
+Mientras Crystal Knows reparte su propuesta entre 5 casos de uso genéricos (You, Sales, Hiring, Coaching, Teams), nuestra landing debe priorizar visualmente el caso de uso de contratación/RRHH (Carlos, B2B) como historia principal, y ofrecer una bifurcación clara hacia el perfil individual (B2C) sin que compita en jerarquía visual con el mensaje B2B. El mensaje central del hero debe anclarse en el dolor validado: &quot;la señal ya estaba ahí, pero nadie supo leerla a tiempo&quot; — no en el mensaje genérico de autoconocimiento de Crystal Knows.
+9. Estructura del hero y lógica B2B / B2C
+9.1 Jerarquía general
+La landing page está construida principalmente para el mercado B2B, pero permite que una persona del mercado B2C acceda a una experiencia equivalente sin salir de la misma página. No son dos landings separadas: es una sola landing con un selector arriba que cambia el contenido debajo.
+9.2 Promesa de valor central (hero)
+Headline principal: &quot;El único test psicométrico que sí te ayuda a decidir.&quot;
+Sub-headline con la palabra rotativa (texto que cambia dinámicamente, tipo carrusel de una sola palabra), formato:
+Diseñado para [palabra rotativa]
+cicla entre:
+contratar · trabajar en equipo · liderar a otros · autoliderarte
+Esto reemplaza el mensaje genérico de autoconocimiento de Crystal Knows (&quot;Your personality is irreplaceable&quot;) por un mensaje de utilidad/decisión, y de paso cubre tanto el ángulo B2B (contratar, liderar, trabajar en equipo) como el B2C (autoliderarte) dentro de la misma frase rotativa — sin tener que elegir un mensaje u otro antes de que la persona interactúe.
+Nota de copy: evitar que el headline suene a &quot;otro test más&quot;. El ángulo ganador no es &quot;descúbrete&quot;, es &quot;deja de adivinar&quot; — el headline y el subtítulo deben insinuar que hoy Carlos está decidiendo a ciegas o con información que no sabe leer, y que esto cambia eso.
+9.3 Selector &quot;Soy empresa / Soy persona&quot;
+Justo debajo del hero, un selector tipo toggle/tabs:
+&quot;Soy empresa&quot; (default, ya que la landing prioriza B2B)
+&quot;Soy persona&quot;
+Importante: este selector solo cambia el contenido que aparece debajo del hero. La frase rotativa del hero (contratar / trabajar en equipo / liderar / autoliderarte) permanece igual y sigue rotando sin importar qué opción se seleccione — es el gancho de entrada compartido para ambos públicos, y no debe sentirse como que &quot;pertenece&quot; más a uno que a otro.
+9.4 Contenido cuando selecciona &quot;Soy empresa&quot; (B2B)
+Kicker + mensaje de entrada / diferenciador:
+LA SEÑAL YA ESTABA AHÍ
+Las entrevistas dicen muchas cosas — pero no muestran lo que está oculto. Nuestro test DISC revela la tendencia temperamental real de un candidato, y si esa tendencia hace match con el rol que necesitas cubrir.
+Dos propuestas de valor centrales, cada una con headline corto + descripción de una línea:
+&quot;Resultados que se leen en 30 segundos, no en 30 minutos.&quot; Cero jerga de psicología. Traducimos el resultado a lo único que te importa: ¿contrato o no contrato?
+&quot;Sube el rol. Te decimos si hace match.&quot; No es solo un perfil de personalidad — es el perfil cruzado contra los requerimientos reales del cargo que estás llenando.
+Visual: ejemplo concreto de one-page de contratación (banderas rojas/verdes + match de rol). Mostrar un mockup con un ejemplo específico y real, con esta estructura:
+Arriba: el rol evaluado, ej. &quot;Rol evaluado: Abogado Senior&quot;.
+Debajo: la bandera roja detectada, con el razonamiento aplicado al rol, ej.: &quot;⚠ Se abruma fácilmente en entornos de alto estrés. Riesgo: podría no sostener el ritmo de un ambiente de trabajo intenso.&quot;
+El objetivo del mockup es que se entienda de un vistazo cómo el sistema traduce un rasgo de personalidad en una alerta accionable para ese cargo específico — sin que el usuario tenga que interpretar nada.
+Tres propuestas de valor únicas (sección de diferenciación, segunda one-page): Headline de sección: &quot;Contratar es solo el primer paso. Esto te ayuda después, también.&quot; Mostrar la one-page de &quot;cómo trabajar con esta persona&quot; y destacar como diferenciadores propios (no genéricos, no disponibles en un test gratis):
+Cómo persuadirla cuando necesitas que se suba a una idea.
+Cómo entrar en desacuerdo con ella sin que se cierre o se vaya a la defensiva.
+Cómo delegarle de forma que de verdad funcione con su forma de trabajar.
+Cierre / CTA: Headline: &quot;Deja de contratar a ciegas.&quot; Botón: &quot;Haz tu test gratis&quot; — subtexto: &quot;Sin tarjeta. Resultado en minutos.&quot;
+Ejemplo de informe (mockup que ancla la sección, justo después del hero + toggle, antes de bajar a las propuestas de valor): Mockup tipo browser chrome (barra de URL simulada, ej. peopledex.com/perfil) con la estructura de Crystal Knows como referencia visual directa:
+Card superior tipo tarjeta de perfil: foto, kicker naranja tipo &quot;MI PERFIL DE CONTRATACIÓN&quot;, nombre + cargo evaluado, pills de rasgos (ej. DIRECTO · DECISIVO · IMPACIENTE), párrafo narrativo de 2-3 líneas resumiendo el perfil en lenguaje llano.
+Card de &quot;Rasgos de personalidad&quot;: sliders horizontales con marcador (foto pequeña como indicador), extremos etiquetados en mayúsculas (ej. RESERVADO ←→ EXTROVERTIDO, TRANQUILO ←→ ASERTIVO).
+Card de &quot;Estilo de comunicación&quot;: 3 bullets accionables sobre fondo suave color acento (ej. &quot;Ve directo al punto, sin preámbulo largo&quot;).
+Card de &quot;Motivaciones clave&quot;: dos columnas — &quot;LO MOTIVA&quot; / &quot;LE DRENA ENERGÍA&quot;, cada una con 3 bullets en fondo de color diferenciado (cálido para lo positivo, gris para lo que evita).
+Card de &quot;Uso de energía&quot;: dos columnas — &quot;SE CARGA CON&quot; / &quot;SE AGOTA CON&quot;, mismo patrón visual.
+Al final del mockup, fila de pills semi-transparentes indicando más secciones disponibles dentro del producto real (ej. &quot;Precisión del perfil&quot;, &quot;Reseñas de pares&quot;, &quot;Patrones bajo estrés&quot;, &quot;Brecha de percepción&quot;, &quot;Plan de crecimiento&quot;, y más), para comunicar profundidad sin saturar el mockup visible.
+Debajo del mockup, línea de refuerzo tipo: &quot;Este es un perfil real. El tuyo se completa igual, a medida que avanzas en el test — sin tarjeta de crédito.&quot;
+Este mismo mockup, con el módulo de match de rol agregado arriba (el descrito en &quot;Visual: ejemplo concreto de one-page de contratación&quot;), es el que ancla visualmente toda la sección B2B. En la vista &quot;Soy persona&quot; se reutiliza el mismo mockup y estructura de cards, solo que sin el módulo de match de rol y con el kicker cambiado a algo como &quot;MI PERFIL&quot;.
+9.5 Contenido cuando selecciona &quot;Soy persona&quot; (B2C)
+Kicker + mensaje de entrada:
+DEJA DE REPETIR EL MISMO ERROR
+Ya hiciste un test gratis. Lo leíste una vez y no supiste qué hacer con él. Este no es otro test para archivar — es un mapa que usas cada vez que lo necesitas.
+Mismo esqueleto de página y mismos componentes del informe excepto el módulo de match laboral (banderas rojas/verdes contra un rol específico) — ese módulo se retira por completo en esta vista.
+Todo lo demás aplica igual (perfil de la persona, one-page de &quot;cómo relacionarse con ella&quot;, páginas de detalle 1 y 2), pero:
+El lenguaje cambia de &quot;cómo evaluar/contratar a alguien&quot; a &quot;cómo te sirve esto a ti&quot;: cómo te gusta que te lideren, cómo trabajar contigo, cómo comunicarte mejor con quienes te rodean, con quién puedes hacer buen match, etc.
+CTA de cierre: &quot;Conócete de verdad.&quot; Botón: &quot;Haz tu test gratis&quot; — subtexto: &quot;10 minutos. Sin tarjeta.&quot;
+10. Pricing / Planes
+(Placeholder de precios — ajustar cuando tengas números validados; la estructura de 3 planes sí queda fija.)
+Sección de pricing con tres columnas, plan del medio destacado visualmente (borde de color, badge &quot;Más popular&quot;):
+Gratis
+Pro (destacado)
+Empresas
+Para
+Persona que quiere conocerse
+Persona o líder que quiere ir a fondo
+Equipos y RRHH con contratación activa
+Precio
+$0
+$X /test
+Personalizado
+Incluye
+Perfil DISC básico: combinación temperamental, fortalezas, debilidades
+Todo lo del plan gratis + one-pages completas de perfil y relacionamiento + chat de IA
+Todo lo del plan Pro + one-page de match de contratación (banderas rojas/verdes vs. rol) + perfiles ilimitados de equipo + soporte prioritario
+CTA
+&quot;Haz tu test gratis&quot;
+&quot;Prueba Pro&quot;
+&quot;Habla con nosotros&quot;
+Nota de copy para esta sección: el plan Empresas debe ser el que resuelva explícitamente el dolor central de Carlos (match rol-perfil), para que quede clarísimo que ese es el valor diferencial pago, no solo &quot;más de lo mismo&quot;.
+11. Próximo paso
+El usuario compartirá:
+Capturas del mockup propio de la solución.
+Capturas adicionales de cómo Crystal Knows muestra sus informes.
+Estas servirán como referencia visual definitiva antes de construir la landing page y el dashboard.

@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DISCmaker · Test DISC online con match de rol</title>
+<meta name="description" content="DISCmaker: test DISC online con match de rol. Informes conductuales para selección y desarrollo de equipos.">
+<template id="__bundler_thumbnail" data-bg-color="#faf6f0">
+  <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+    <rect width="200" height="200" fill="#faf6f0"/>
+    <circle cx="70" cy="90" r="26" fill="#d1392c"/>
+    <circle cx="130" cy="90" r="26" fill="#eab308"/>
+    <circle cx="70" cy="140" r="26" fill="#3f9142"/>
+    <circle cx="130" cy="140" r="26" fill="#2f8fd1"/>
+    <text x="100" y="60" text-anchor="middle" font-family="serif" font-size="22" font-weight="600" fill="#20281f">DISCmaker</text>
+  </svg>
+</template>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;1,400&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+  <style>
+    body { margin: 0; background: #faf6f0; font-family: 'Plus Jakarta Sans', sans-serif; }
+    * { box-sizing: border-box; }
+    a { color: #1f6f52; text-decoration: none; }
+    a:hover { color: #17543e; }
+    ::selection { background: #f3d9c2; }
+  </style>
+</helmet>
+
+<div style="background:{{ colors.cream }}; color:{{ colors.ink }}; min-height:100vh; overflow-x:hidden;" data-screen-label="DISCmaker Landing">
+
+  <!-- NAV -->
+  <header style="position:sticky; top:0; z-index:40; background:rgba(250,246,240,0.88); backdrop-filter:blur(10px); border-bottom:1px solid rgba(31,42,36,0.08);">
+    <div style="max-width:1180px; margin:0 auto; padding:18px 32px; display:flex; align-items:center; justify-content:space-between; gap:24px;">
+      <div style="display:flex; align-items:center; gap:10px;">
+        <div style="width:34px; height:34px; border-radius:9px; background:{{ colors.forest }}; display:flex; align-items:center; justify-content:center; flex:none;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="13" height="16" rx="2" stroke="white" stroke-width="1.6"></rect><rect x="8" y="1" width="13" height="16" rx="2" fill="{{ colors.forest }}" stroke="white" stroke-width="1.6"></rect></svg>
+        </div>
+        <span style="font-family:'Spectral',serif; font-size:22px; font-weight:600; letter-spacing:-0.3px; color:{{ colors.ink }};">DISCmaker</span>
+      </div>
+      <nav style="display:flex; align-items:center; gap:32px;">
+        <a href="#producto" style="font-size:14.5px; font-weight:500; color:{{ colors.ink }}; opacity:0.75;" style-hover="opacity:1;">Producto</a>
+        <a href="#precios" style="font-size:14.5px; font-weight:500; color:{{ colors.ink }}; opacity:0.75;" style-hover="opacity:1;">Precios</a>
+        <a href="#cta-final" style="font-size:14.5px; font-weight:700; color:white; background:{{ colors.forest }}; padding:11px 20px; border-radius:100px;" style-hover="background:#17543e;">Haz tu test gratis</a>
+      </nav>
+    </div>
+    <div style="height:4px; background:{{ discGradient }};"></div>
+  </header>
+
+  <!-- HERO -->
+  <section style="max-width:900px; margin:0 auto; padding:88px 32px 40px; text-align:center;">
+    <div style="display:inline-flex; align-items:center; gap:8px; padding:7px 16px; border-radius:100px; background:{{ colors.softOrange }}; color:{{ colors.terra }}; font-size:12.5px; font-weight:700; letter-spacing:0.06em; margin-bottom:28px;">
+      DEJA DE ADIVINAR
+    </div>
+    <h1 style="font-family:'Spectral',serif; font-size:58px; line-height:1.08; font-weight:600; letter-spacing:-1px; margin:0 0 22px; color:{{ colors.ink }};">
+      El test psicométrico que sí te ayuda a <span style="color:{{ colors.terra }};">{{ currentWord }}</span>
+    </h1>
+    <div style="display:flex; gap:14px; justify-content:center; flex-wrap:wrap;">
+      <a href="#cta-final" style="font-size:16px; font-weight:700; color:white; background:{{ colors.forest }}; padding:16px 30px; border-radius:100px; display:inline-flex; align-items:center; gap:8px;" style-hover="background:#17543e;">
+        Haz tu test gratis <span>→</span>
+      </a>
+      <a href="#producto" style="font-size:16px; font-weight:700; color:{{ colors.ink }}; background:transparent; border:1.5px solid rgba(31,42,36,0.18); padding:15px 28px; border-radius:100px;" style-hover="border-color:rgba(31,42,36,0.4);">
+        Ver cómo funciona
+      </a>
+    </div>
+    <p style="margin:20px 0 0; font-size:13.5px; color:{{ colors.ink }}; opacity:0.5;">Sin tarjeta de crédito · Resultado en minutos</p>
+  </section>
+
+  <!-- TOGGLE -->
+  <div id="producto" style="display:flex; justify-content:center; padding:8px 32px 16px;">
+    <div style="display:inline-flex; background:white; border:1px solid rgba(31,42,36,0.1); border-radius:100px; padding:5px; box-shadow:0 2px 10px rgba(31,42,36,0.05);">
+      <button onClick="{{ setBusiness }}" style="border:none; cursor:pointer; font-family:inherit; font-size:14.5px; font-weight:700; padding:11px 24px; border-radius:100px; background:{{ businessBg }}; color:{{ businessColor }}; transition:all .2s;">Soy empresa</button>
+      <button onClick="{{ setPerson }}" style="border:none; cursor:pointer; font-family:inherit; font-size:14.5px; font-weight:700; padding:11px 24px; border-radius:100px; background:{{ personBg }}; color:{{ personColor }}; transition:all .2s;">Soy persona</button>
+    </div>
+  </div>
+
+  <!-- 4 VALUE PROPS, EACH A HORIZONTAL ROW WITH AN EXACT REPORT EXAMPLE -->
+  <section style="max-width:1080px; margin:0 auto; padding:0 32px 40px;">
+    <sc-for list="{{ valueProps }}" as="vp" hint-placeholder-count="4">
+      <div style="display:flex; flex-direction:{{ vp.rowDirection }}; align-items:center; gap:56px; padding:{{ vp.rowPaddingTop }}px 0 60px; border-top:{{ vp.borderTop }}; flex-wrap:wrap;">
+
+        <!-- report mockup panel -->
+        <div style="flex:1 1 380px; max-width:{{ vp.mockupWidth }}px; margin:0 auto;">
+          <div style="background:#f4efe8; border-radius:18px; padding:18px; box-shadow:0 20px 48px -22px rgba(31,42,36,0.25);">
+            <div style="height:4px; border-radius:9px 9px 0 0; background:{{ discGradient }};"></div>
+            
+            <div style="background:white; border:1px solid rgba(31,42,36,0.08); border-top:none; border-radius:0 0 10px 10px; padding:26px;">
+
+              <!-- FULL MATCH REPORT (propuesta 1) -->
+              <sc-if value="{{ vp.hasMatchReport }}" hint-placeholder-val="{{ false }}">
+                <div style="display:flex; align-items:flex-start; justify-content:space-between; gap:14px; margin-bottom:18px; flex-wrap:nowrap;">
+                  <div style="display:flex; align-items:center; gap:12px; min-width:0;">
+                    <div style="width:48px; height:48px; border-radius:50%; background:linear-gradient(135deg, {{ colors.discD }}, {{ colors.discI }}); display:flex; align-items:center; justify-content:center; flex:none;">
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><circle cx="12" cy="8.4" r="3.6"></circle><path d="M4.5 20.5c0-4.14 3.36-7.5 7.5-7.5s7.5 3.36 7.5 7.5H4.5z"></path></svg>
+                    </div>
+                    <div>
+                      <div style="font-family:'Spectral',serif; font-size:19px; font-weight:600; color:{{ colors.ink }}; white-space:nowrap;">{{ vp.matchName }}</div>
+                      <div style="font-size:12.5px; color:{{ colors.ink }}; opacity:0.55; white-space:nowrap;">Perfil: {{ vp.matchPerfil }}</div>
+                    </div>
+                  </div>
+                  <div style="text-align:right; flex:none; display:flex; flex-direction:column; align-items:flex-end; gap:8px;">
+                    <div style="display:inline-block; background:{{ colors.forest }}; color:white; font-size:10.5px; font-weight:800; letter-spacing:0.05em; padding:5px 12px; border-radius:100px; white-space:nowrap;">{{ vp.matchBadgeLabel }}</div>
+                    <sc-if value="{{ vp.hasRoleLine }}" hint-placeholder-val="{{ false }}">
+                      <div style="font-size:12.5px; color:{{ colors.ink }}; opacity:0.6; white-space:nowrap;">{{ vp.matchRoleLine }}</div>
+                    </sc-if>
+                  </div>
+                </div>
+                <div style="height:1px; background:rgba(31,42,36,0.08); margin-bottom:18px;"></div>
+
+                <div style="margin-bottom:18px;">
+                  <div style="font-size:11px; font-weight:800; letter-spacing:0.06em; color:#c25b2c; margin-bottom:10px;">🚩 BANDERAS ROJAS</div>
+                  <div style="display:flex; flex-direction:column; gap:8px;">
+                    <sc-for list="{{ vp.redFlags }}" as="rf" hint-placeholder-count="3">
+                      <div style="display:grid; grid-template-columns:1fr auto 1.4fr; align-items:center; gap:10px;">
+                        <div style="background:{{ colors.softGray }}; border-radius:8px; padding:9px 12px; font-size:12.5px; color:{{ colors.ink }}; opacity:0.7;">{{ rf.label }}</div>
+                        <span style="color:{{ colors.ink }}; opacity:0.3;">→</span>
+                        <div style="background:#fdf1e2; border:1px solid #e8b98c; border-radius:8px; padding:9px 12px; font-size:12.5px; line-height:1.35; color:{{ colors.ink }};">{{ rf.text }}</div>
+                      </div>
+                    </sc-for>
+                  </div>
+                </div>
+
+                <div>
+                  <div style="font-size:11px; font-weight:800; letter-spacing:0.06em; color:{{ colors.forest }}; margin-bottom:10px;">✓ BANDERAS VERDES</div>
+                  <div style="display:flex; flex-direction:column; gap:8px;">
+                    <sc-for list="{{ vp.greenFlags }}" as="gf" hint-placeholder-count="3">
+                      <div style="display:grid; grid-template-columns:1fr auto 1.4fr; align-items:center; gap:10px;">
+                        <div style="background:{{ colors.softGray }}; border-radius:8px; padding:9px 12px; font-size:12.5px; color:{{ colors.ink }}; opacity:0.7;">{{ gf.label }}</div>
+                        <span style="color:{{ colors.ink }}; opacity:0.3;">→</span>
+                        <div style="background:#e8f3ea; border:1px solid #a9d4b4; border-radius:8px; padding:9px 12px; font-size:12.5px; line-height:1.35; color:{{ colors.ink }};">{{ gf.text }}</div>
+                      </div>
+                    </sc-for>
+                  </div>
+                </div>
+              </sc-if>
+
+              <!-- AI CHAT MOCKUP (propuesta 2) -->
+              <sc-if value="{{ vp.hasChatMockup }}" hint-placeholder-val="{{ false }}">
+                <div style="display:flex; align-items:center; gap:8px; margin-bottom:20px;">
+                  <div style="width:28px; height:28px; border-radius:8px; background:linear-gradient(135deg, {{ colors.discD }}, {{ colors.discI }}); display:flex; align-items:center; justify-content:center; flex:none;">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M12 3a7 7 0 0 0-7 7c0 3 1.6 5 3.5 6.3L8 20l4-1 4 1-.5-3.7C21.4 15 23 13 23 10a7 7 0 0 0-7-7"></path></svg>
+                  </div>
+                  <div style="font-family:'Spectral',serif; font-size:17px; font-weight:600; color:{{ colors.ink }};">Chat con IA</div>
+                </div>
+
+                <div style="display:flex; justify-content:flex-end; margin-bottom:14px;">
+                  <div style="background:{{ colors.creamAlt }}; border-radius:14px 14px 3px 14px; padding:13px 16px; font-size:13.5px; line-height:1.4; color:{{ colors.ink }}; max-width:82%;">{{ vp.chatQuestion }}</div>
+                </div>
+
+                <div style="display:flex; justify-content:flex-start; margin-bottom:14px;">
+                  <div style="border:1px solid rgba(31,42,36,0.1); border-radius:14px 14px 14px 3px; padding:16px 18px; max-width:88%;">
+                    <div style="font-size:13.5px; font-weight:700; color:{{ colors.ink }}; margin-bottom:10px;">{{ vp.chatAnswerIntro }}</div>
+                    <div style="display:flex; flex-direction:column; gap:8px;">
+                      <sc-for list="{{ vp.chatAnswerPoints }}" as="cp" hint-placeholder-count="3">
+                        <div style="display:flex; gap:8px; font-size:13px; line-height:1.4; color:{{ colors.ink }}; opacity:0.78;">
+                          <span style="color:{{ colors.terra }}; flex:none;">·</span>{{ cp }}
+                        </div>
+                      </sc-for>
+                    </div>
+                  </div>
+                </div>
+
+                <div style="display:flex; justify-content:flex-end;">
+                  <div style="background:{{ colors.forest }}; color:white; border-radius:14px 14px 3px 14px; padding:10px 16px; font-size:13.5px;">{{ vp.chatClosing }}</div>
+                </div>
+              </sc-if>
+
+              <!-- PROFILE SUMMARY TABLE (propuesta 3) -->
+              <sc-if value="{{ vp.hasProfileTable }}" hint-placeholder-val="{{ false }}">
+                <div style="display:flex; align-items:flex-start; justify-content:space-between; gap:14px; margin-bottom:20px; flex-wrap:nowrap;">
+                  <div style="display:flex; align-items:center; gap:12px; min-width:0;">
+                    <div style="width:48px; height:48px; border-radius:50%; background:linear-gradient(135deg, {{ vp.tableIconA }}, {{ vp.tableIconB }}); display:flex; align-items:center; justify-content:center; flex:none;">
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><circle cx="12" cy="8.4" r="3.6"></circle><path d="M4.5 20.5c0-4.14 3.36-7.5 7.5-7.5s7.5 3.36 7.5 7.5H4.5z"></path></svg>
+                    </div>
+                    <div>
+                      <div style="font-family:'Spectral',serif; font-size:19px; font-weight:600; color:{{ colors.ink }}; white-space:nowrap;">{{ vp.tableName }}</div>
+                      <div style="font-size:12.5px; color:{{ colors.ink }}; opacity:0.55; white-space:nowrap;">Perfil: {{ vp.tablePerfil }}</div>
+                    </div>
+                  </div>
+                  <div style="display:inline-block; background:{{ colors.forest }}; color:white; font-size:10.5px; font-weight:800; letter-spacing:0.05em; padding:5px 12px; border-radius:100px; white-space:nowrap; flex:none;">{{ vp.tableBadgeLabel }}</div>
+                </div>
+                <div style="border:1px solid rgba(31,42,36,0.08); border-radius:10px; overflow:hidden;">
+                  <div style="display:grid; grid-template-columns:1.3fr 1fr 1fr; background:{{ colors.creamAlt }};">
+                    <div style="padding:9px 12px;"></div>
+                    <div style="padding:9px 12px; text-align:center; font-family:'Spectral',serif; font-weight:700; font-size:14px; color:{{ vp.tableIconA }};">{{ vp.colHeaderA }}</div>
+                    <div style="padding:9px 12px; text-align:center; font-family:'Spectral',serif; font-weight:700; font-size:14px; color:{{ vp.tableIconB }};">{{ vp.colHeaderB }}</div>
+                  </div>
+                  <sc-for list="{{ vp.tableRows }}" as="row" hint-placeholder-count="5">
+                    <div style="display:grid; grid-template-columns:1.3fr 1fr 1fr; border-top:1px solid rgba(31,42,36,0.08);">
+                      <div style="padding:11px 12px; font-size:11.5px; font-weight:800; letter-spacing:0.03em; color:{{ colors.ink }}; opacity:0.55;">{{ row.label }}</div>
+                      <div style="padding:11px 12px; font-size:12px; line-height:1.35; color:{{ colors.ink }}; border-left:1px solid rgba(31,42,36,0.06); filter:{{ row.blurFilter }};">{{ row.colA }}</div>
+                      <div style="padding:11px 12px; font-size:12px; line-height:1.35; color:{{ colors.ink }}; border-left:1px solid rgba(31,42,36,0.06); filter:{{ row.blurFilter }};">{{ row.colB }}</div>
+                    </div>
+                  </sc-for>
+                </div>
+              </sc-if>
+
+              <sc-if value="{{ vp.hasBadgeHeader }}" hint-placeholder-val="{{ false }}">
+                <div style="display:flex; align-items:center; gap:7px; margin-bottom:16px;">
+                  <span style="width:6px; height:6px; border-radius:50%; background:{{ vp.badgeColor }}; flex:none;"></span>
+                  <span style="font-size:11px; font-weight:800; letter-spacing:0.06em; color:{{ vp.badgeColor }};">{{ vp.badgeLabel }}</span>
+                </div>
+              </sc-if>
+              <sc-if value="{{ vp.hasVerdict }}" hint-placeholder-val="{{ false }}">
+                <div style="font-family:'Spectral',serif; font-size:30px; font-weight:600; color:{{ vp.verdictColor }}; margin-bottom:6px;">{{ vp.verdictText }}</div>
+                <div style="font-size:13.5px; color:{{ colors.ink }}; opacity:0.6;">{{ vp.verdictSub }}</div>
+              </sc-if>
+              <sc-if value="{{ vp.hasLines }}" hint-placeholder-val="{{ false }}">
+                <div style="display:flex; flex-direction:column; gap:9px;">
+                  <sc-for list="{{ vp.lines }}" as="ln" hint-placeholder-count="2">
+                    <div style="background:{{ colors.creamAlt }}; border-radius:9px; padding:12px 14px; font-size:14px; line-height:1.4; color:{{ colors.ink }};">{{ ln }}</div>
+                  </sc-for>
+                </div>
+              </sc-if>
+            </div>
+          </div>
+        </div>
+
+        <!-- copy -->
+        <div style="flex:1 1 380px;">
+          
+          <div style="font-family:'Spectral',serif; font-size:30px; font-weight:600; line-height:1.28; color:{{ colors.ink }}; margin-bottom:16px;">{{ vp.headline }}</div>
+          <p style="font-size:17px; line-height:1.6; color:{{ colors.ink }}; opacity:0.72; margin:0;">{{ vp.desc }}</p>
+        </div>
+      </div>
+    </sc-for>
+  </section>
+
+  <!-- VALIDATION: THE SCIENCE BEHIND THE TEST -->
+  <section style="background:#f1ede4; padding:88px 32px;">
+    <div style="max-width:1080px; margin:0 auto;">
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:56px; align-items:center;">
+
+        <!-- DISC quadrant diagram -->
+        <div style="display:flex; justify-content:center;">
+          <div style="width:100%; max-width:340px;">
+            <div style="display:flex; flex-direction:column; align-items:center; margin-bottom:6px;">
+              <span style="font-size:11.5px; font-weight:800; letter-spacing:0.06em; color:{{ colors.ink }}; opacity:0.6;">EXTROVERSIÓN</span>
+              <div style="width:1.5px; height:14px; background:rgba(31,42,36,0.25); margin-top:4px;"></div>
+            </div>
+            <div style="display:flex; align-items:stretch; gap:6px;">
+              <div style="display:flex; flex-direction:column; align-items:center; justify-content:center; writing-mode:vertical-rl; transform:rotate(180deg); font-size:11.5px; font-weight:800; letter-spacing:0.06em; color:{{ colors.ink }}; opacity:0.6;">TAREAS</div>
+              <div style="flex:1; display:grid; grid-template-columns:1fr 1fr; grid-template-rows:1fr 1fr; gap:3px; border-radius:14px; overflow:hidden; border-top:5px solid {{ colors.discD }}; border-right:5px solid {{ colors.discI }}; border-bottom:5px solid {{ colors.discS }}; border-left:5px solid {{ colors.discC }};">
+                <div style="background:{{ colors.discD }}; display:flex; align-items:center; justify-content:center; aspect-ratio:1;">
+                  <span style="font-family:'Spectral',serif; font-size:38px; font-weight:700; color:white;">D</span>
+                </div>
+                <div style="background:{{ colors.discI }}; display:flex; align-items:center; justify-content:center; aspect-ratio:1;">
+                  <span style="font-family:'Spectral',serif; font-size:38px; font-weight:700; color:white;">I</span>
+                </div>
+                <div style="background:{{ colors.discC }}; display:flex; align-items:center; justify-content:center; aspect-ratio:1;">
+                  <span style="font-family:'Spectral',serif; font-size:38px; font-weight:700; color:white;">C</span>
+                </div>
+                <div style="background:{{ colors.discS }}; display:flex; align-items:center; justify-content:center; aspect-ratio:1;">
+                  <span style="font-family:'Spectral',serif; font-size:38px; font-weight:700; color:white;">S</span>
+                </div>
+              </div>
+              <div style="display:flex; flex-direction:column; align-items:center; justify-content:center; writing-mode:vertical-rl; font-size:11.5px; font-weight:800; letter-spacing:0.06em; color:{{ colors.ink }}; opacity:0.6;">RELACIONES</div>
+            </div>
+            <div style="display:flex; flex-direction:column; align-items:center; margin-top:6px;">
+              <div style="width:1.5px; height:14px; background:rgba(31,42,36,0.25); margin-bottom:4px;"></div>
+              <span style="font-size:11.5px; font-weight:800; letter-spacing:0.06em; color:{{ colors.ink }}; opacity:0.6;">INTROVERSIÓN</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- validating facts -->
+        <div>
+          <div style="font-size:12.5px; font-weight:800; letter-spacing:0.08em; color:{{ colors.terra }}; margin-bottom:14px;">LA CIENCIA DETRÁS DEL TEST</div>
+          <h2 style="font-family:'Spectral',serif; font-size:34px; font-weight:600; line-height:1.25; letter-spacing:-0.5px; color:{{ colors.ink }}; margin:0 0 20px;">El modelo de comportamiento más usado en el mundo laboral.</h2>
+          <p style="font-size:16px; line-height:1.6; color:{{ colors.ink }}; opacity:0.7; margin:0 0 28px;">DISCmaker está construido sobre DISC — el mismo marco que ya usan la mayoría de las grandes empresas del mundo para entender cómo se comporta su gente.</p>
+          <div style="display:flex; flex-direction:column; gap:18px;">
+            <sc-for list="{{ discFacts }}" as="fact" hint-placeholder-count="4">
+              <div style="display:flex; gap:16px; align-items:flex-start;">
+                <div style="font-family:'Spectral',serif; font-size:26px; font-weight:600; color:{{ colors.forest }}; flex:none; min-width:88px;">{{ fact.stat }}</div>
+                <div style="font-size:14.5px; line-height:1.5; color:{{ colors.ink }}; opacity:0.75; padding-top:4px;">{{ fact.desc }}</div>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section id="precios" style="max-width:1080px; margin:0 auto; padding:96px 32px 40px;">
+    <div style="text-align:center; margin-bottom:52px;">
+      <h2 style="font-family:'Spectral',serif; font-size:40px; font-weight:600; letter-spacing:-0.5px; color:{{ colors.ink }}; margin:0 0 12px;">Planes simples, para cada etapa</h2>
+      <p style="font-size:16.5px; color:{{ colors.ink }}; opacity:0.65; margin:0;">Empieza gratis. Sube de nivel cuando la decisión valga la pena.</p>
+    </div>
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:24px; align-items:stretch;">
+      <sc-for list="{{ mainPlans }}" as="p" hint-placeholder-count="3">
+        <div style="background:white; border-radius:18px; padding:34px 28px; display:flex; flex-direction:column; gap:18px; border:1.5px solid rgba(31,42,36,0.08);">
+          <sc-if value="{{ p.highlighted }}" hint-placeholder-val="{{ false }}">
+            <div style="align-self:flex-start; background:{{ colors.forest }}; color:white; font-size:11.5px; font-weight:800; letter-spacing:0.04em; padding:5px 12px; border-radius:100px;">MÁS POPULAR</div>
+          </sc-if>
+          <div>
+            <div style="font-family:'Spectral',serif; font-size:22px; font-weight:600; color:{{ colors.ink }}; margin-bottom:6px;">{{ p.name }}</div>
+            <div style="font-size:14px; color:{{ colors.ink }}; opacity:0.6;">{{ p.audience }}</div>
+          </div>
+          <sc-if value="{{ p.priceBadge }}" hint-placeholder-val="{{ false }}">
+            <div style="align-self:flex-start; background:{{ colors.terra }}; color:white; font-size:10.5px; font-weight:800; letter-spacing:0.05em; padding:4px 10px; border-radius:100px;">{{ p.priceBadge }}</div>
+          </sc-if>
+          <sc-if value="{{ p.priceLine }}" hint-placeholder-val="{{ false }}">
+            <div style="font-size:15px; font-weight:700; color:{{ colors.terra }}; white-space:nowrap;">{{ p.priceLine }}</div>
+          </sc-if>
+          <sc-if value="{{ p.hasPrice }}" hint-placeholder-val="{{ true }}">
+            <div style="display:flex; align-items:baseline; gap:6px;">
+              <span style="font-family:'Spectral',serif; font-size:38px; font-weight:600; color:{{ colors.ink }};">{{ p.price }}</span>
+              <span style="font-size:14px; color:{{ colors.ink }}; opacity:0.55;">{{ p.per }}</span>
+            </div>
+          </sc-if>
+          <div style="height:1px; background:rgba(31,42,36,0.08);"></div>
+          <div style="display:flex; flex-direction:column; gap:12px; flex:1;">
+            <sc-for list="{{ p.features }}" as="f" hint-placeholder-count="3">
+              <div style="display:flex; gap:10px; font-size:14.5px; line-height:1.4; color:{{ colors.ink }}; opacity:0.8;">
+                <span style="color:{{ colors.forest }}; flex:none;">✓</span>{{ f }}
+              </div>
+            </sc-for>
+          </div>
+          <sc-if value="{{ p.hasSections }}" hint-placeholder-val="{{ false }}">
+            <div style="display:flex; flex-direction:column; gap:8px;">
+              <sc-for list="{{ p.sections }}" as="sec" hint-placeholder-count="2">
+                <div style="border:1px solid rgba(31,42,36,0.1); border-radius:10px; overflow:hidden;">
+                  <button onClick="{{ sec.toggle }}" style="width:100%; border:none; cursor:pointer; background:{{ colors.creamAlt }}; font-family:inherit; text-align:left; padding:11px 14px; display:flex; align-items:center; justify-content:space-between; gap:8px; font-size:13px; font-weight:700; color:{{ colors.ink }};">
+                    <span>{{ sec.label }}</span>
+                    <span style="color:{{ colors.terra }};">{{ sec.chevron }}</span>
+                  </button>
+                  <sc-if value="{{ sec.open }}" hint-placeholder-val="{{ false }}">
+                    <div style="padding:12px 16px; display:flex; flex-direction:column; gap:7px;">
+                      <sc-for list="{{ sec.items }}" as="it" hint-placeholder-count="4">
+                        <div style="display:flex; gap:8px; font-size:13px; line-height:1.4; color:{{ colors.ink }}; opacity:0.75;">
+                          <span style="color:{{ colors.forest }}; flex:none;">·</span>{{ it }}
+                        </div>
+                      </sc-for>
+                    </div>
+                  </sc-if>
+                </div>
+              </sc-for>
+            </div>
+          </sc-if>
+          <a href="{{ p.ctaHref }}" target="{{ p.ctaTarget }}" style="text-align:center; font-size:15px; font-weight:700; padding:13px; border-radius:100px; color:{{ p.ctaTextColor }}; background:{{ p.ctaBg }}; border:1.5px solid {{ p.ctaBorder }};">{{ p.cta }}</a>
+        </div>
+      </sc-for>
+    </div>
+
+    <div style="margin-top:24px; background:white; border-radius:18px; padding:36px 40px; border:1.5px solid rgba(31,42,36,0.08); display:flex; align-items:center; gap:40px; flex-wrap:wrap;">
+      <div style="flex:1 1 260px; min-width:220px;">
+        <div style="font-family:'Spectral',serif; font-size:22px; font-weight:600; color:{{ colors.ink }}; margin-bottom:6px;">{{ whiteLabelPlan.name }}</div>
+        <div style="font-size:14px; color:{{ colors.ink }}; opacity:0.6; margin-bottom:10px;">{{ whiteLabelPlan.audience }}</div>
+        <div style="font-size:14.5px; font-weight:700; color:{{ colors.terra }};">{{ whiteLabelPlan.priceLine }}</div>
+      </div>
+      <div style="width:1px; align-self:stretch; background:rgba(31,42,36,0.08);"></div>
+      <div style="flex:2 1 400px; display:flex; flex-direction:column; gap:10px; min-width:260px;">
+        <sc-for list="{{ whiteLabelPlan.features }}" as="f" hint-placeholder-count="3">
+          <div style="display:flex; gap:10px; font-size:14.5px; line-height:1.4; color:{{ colors.ink }}; opacity:0.8;">
+            <span style="color:{{ colors.forest }}; flex:none;">✓</span>{{ f }}
+          </div>
+        </sc-for>
+      </div>
+      <a href="{{ whiteLabelPlan.ctaHref }}" target="{{ whiteLabelPlan.ctaTarget }}" style="flex:none; text-align:center; font-size:15px; font-weight:700; padding:14px 26px; border-radius:100px; color:{{ whiteLabelPlan.ctaTextColor }}; background:{{ whiteLabelPlan.ctaBg }}; border:1.5px solid {{ whiteLabelPlan.ctaBorder }}; white-space:nowrap;">{{ whiteLabelPlan.cta }}</a>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section id="cta-final" style="max-width:760px; margin:0 auto; padding:100px 32px; text-align:center;">
+    <h2 style="font-family:'Spectral',serif; font-size:46px; font-weight:600; letter-spacing:-0.5px; color:{{ colors.ink }}; margin:0 0 16px;">Deja de <span style="color:{{ colors.terra }};">{{ currentWord }}</span> a ciegas.</h2>
+    <p style="font-size:17px; color:{{ colors.ink }}; opacity:0.65; margin:0 0 34px;">{{ ctaSub }}</p>
+    <div style="display:flex; gap:14px; justify-content:center; flex-wrap:wrap;">
+      <a href="#" style="font-size:16px; font-weight:700; color:white; background:{{ colors.forest }}; padding:17px 32px; border-radius:100px;" style-hover="background:#17543e;">Haz tu test gratis →</a>
+    </div>
+    <p style="margin-top:18px; font-size:13.5px; color:{{ colors.ink }}; opacity:0.5;">{{ ctaMicro }}</p>
+  </section>
+
+  <!-- OTHER DISC PRODUCTS -->
+  <section style="background:{{ colors.creamAlt }}; padding:96px 32px;">
+    <div style="max-width:1080px; margin:0 auto;">
+      <div style="text-align:center; margin-bottom:52px;">
+        <h2 style="font-family:'Spectral',serif; font-size:40px; font-weight:600; letter-spacing:-0.5px; color:{{ colors.ink }}; margin:0 0 12px;">Más allá del test: lleva el DISC a tu equipo.</h2>
+        <p style="font-size:16.5px; color:{{ colors.ink }}; opacity:0.65; margin:0; max-width:560px; margin:0 auto;">Para empresas que quieren ir más profundo — coaching, formación en equipo, y el conocimiento completo detrás del modelo.</p>
+      </div>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:24px; align-items:stretch;">
+        <sc-for list="{{ otherProducts }}" as="op" hint-placeholder-count="3">
+          <div style="background:white; border-radius:18px; padding:32px 28px; display:flex; flex-direction:column; gap:16px; border:1.5px solid rgba(31,42,36,0.08);">
+            <div style="font-family:'Spectral',serif; font-size:21px; font-weight:600; color:{{ colors.ink }};">{{ op.name }}</div>
+            <p style="font-size:14.5px; line-height:1.55; color:{{ colors.ink }}; opacity:0.72; margin:0; flex:1;">{{ op.copy }}</p>
+            <div style="display:flex; flex-direction:column; gap:10px;">
+              <sc-for list="{{ op.buttons }}" as="btn" hint-placeholder-count="1">
+                <a href="{{ btn.href }}" target="{{ btn.target }}" style="text-align:center; font-size:14.5px; font-weight:700; padding:12px; border-radius:100px; color:{{ btn.textColor }}; background:{{ btn.bg }}; border:1.5px solid {{ btn.border }};">{{ btn.label }}</a>
+              </sc-for>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer style="border-top:1px solid rgba(31,42,36,0.08); padding:64px 32px 40px;">
+    <div style="max-width:1180px; margin:0 auto;">
+      <div style="display:grid; grid-template-columns:1.4fr repeat(4,1fr); gap:32px; margin-bottom:48px;">
+        <div>
+          <div style="display:flex; align-items:center; gap:10px; margin-bottom:14px;">
+            <div style="width:28px; height:28px; border-radius:8px; background:{{ colors.forest }}; display:flex; align-items:center; justify-content:center;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="13" height="16" rx="2" stroke="white" stroke-width="1.6"></rect><rect x="8" y="1" width="13" height="16" rx="2" fill="{{ colors.forest }}" stroke="white" stroke-width="1.6"></rect></svg>
+            </div>
+            <span style="font-family:'Spectral',serif; font-size:19px; font-weight:600; color:{{ colors.ink }};">DISCmaker</span>
+          </div>
+          <p style="font-size:14px; line-height:1.5; color:{{ colors.ink }}; opacity:0.55; max-width:220px; margin:0;">El perfil de personalidad que se consulta, no que se archiva.</p>
+        </div>
+        <div>
+          <div style="font-size:12.5px; font-weight:800; letter-spacing:0.05em; color:{{ colors.ink }}; opacity:0.45; margin-bottom:16px;">PRODUCT</div>
+          <div style="display:flex; flex-direction:column; gap:11px; font-size:14.5px;"><a href="#" style="color:{{ colors.ink }}; opacity:0.7;" style-hover="opacity:1; color:{{ colors.forest }};">Cómo funciona</a><a href="#" style="color:{{ colors.ink }}; opacity:0.7;" style-hover="opacity:1; color:{{ colors.forest }};">Para contratación</a><a href="#" style="color:{{ colors.ink }}; opacity:0.7;" style-hover="opacity:1; color:{{ colors.forest }};">Para equipos</a><a href="#precios" style="color:{{ colors.ink }}; opacity:0.7;" style-hover="opacity:1; color:{{ colors.forest }};">Precios</a></div>
+        </div>
+        <div>
+          <div style="font-size:12.5px; font-weight:800; letter-spacing:0.05em; color:{{ colors.ink }}; opacity:0.45; margin-bottom:16px;">LEARN</div>
+          <div style="display:flex; flex-direction:column; gap:11px; font-size:14.5px;"><a href="#" style="color:{{ colors.ink }}; opacity:0.7;" style-hover="opacity:1; color:{{ colors.forest }};">Guía DISC</a><a href="#" style="color:{{ colors.ink }}; opacity:0.7;" style-hover="opacity:1; color:{{ colors.forest }};">Blog</a><a href="#" style="color:{{ colors.ink }}; opacity:0.7;" style-hover="opacity:1; color:{{ colors.forest }};">Preguntas frecuentes</a></div>
+        </div>
+        <div>
+          <div style="font-size:12.5px; font-weight:800; letter-spacing:0.05em; color:{{ colors.ink }}; opacity:0.45; margin-bottom:16px;">FREE TESTS</div>
+          <div style="display:flex; flex-direction:column; gap:11px; font-size:14.5px;"><a href="#" style="color:{{ colors.ink }}; opacity:0.7;" style-hover="opacity:1; color:{{ colors.forest }};">Test DISC gratis</a><a href="#" style="color:{{ colors.ink }}; opacity:0.7;" style-hover="opacity:1; color:{{ colors.forest }};">Test de temperamento</a></div>
+        </div>
+        <div>
+          <div style="font-size:12.5px; font-weight:800; letter-spacing:0.05em; color:{{ colors.ink }}; opacity:0.45; margin-bottom:16px;">COMPANY</div>
+          <div style="display:flex; flex-direction:column; gap:11px; font-size:14.5px;"><a href="#" style="color:{{ colors.ink }}; opacity:0.7;" style-hover="opacity:1; color:{{ colors.forest }};">Nosotros</a><a href="#" style="color:{{ colors.ink }}; opacity:0.7;" style-hover="opacity:1; color:{{ colors.forest }};">Contacto</a></div>
+        </div>
+      </div>
+      <div style="border-top:1px solid rgba(31,42,36,0.08); padding-top:24px; font-size:13px; color:{{ colors.ink }}; opacity:0.45; display:flex; flex-direction:column; gap:4px;">
+        <span>© 2026 DISCmaker. Todos los derechos reservados.</span>
+        <span style="font-size:11.5px; opacity:0.8;">DISCmaker · un producto de PeopleDex</span>
+      </div>
+    </div>
+  </footer>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;: {&quot;width&quot;: 1280, &quot;height&quot;: 900}, &quot;palette&quot;: {&quot;editor&quot;: &quot;color&quot;, &quot;default&quot;: [&quot;#1f6f52&quot;, &quot;#c9793d&quot;], &quot;tsType&quot;: &quot;string[]&quot;, &quot;options&quot;: [[&quot;#1f6f52&quot;, &quot;#c9793d&quot;], [&quot;#2b5f8a&quot;, &quot;#c9793d&quot;], [&quot;#1f6f52&quot;, &quot;#8a5a2b&quot;]], &quot;section&quot;: &quot;Marca&quot;}}">
+const WORDS = ['contratar', 'liderar a otros', 'trabajar en equipo', 'autoliderarte'];
+
+class Component extends DCLogic {
+  state = { audience: 'business', wordIndex: 0, disclosureOpen: { comoEs: false, comoTrabaja: false } };
+
+  toggleDisclosure = (key) => {
+    this.setState(s => ({ disclosureOpen: { ...s.disclosureOpen, [key]: !s.disclosureOpen[key] } }));
+  };
+
+  componentDidMount() {
+    this._t = setInterval(() => {
+      this.setState(s => ({ wordIndex: (s.wordIndex + 1) % WORDS.length }));
+    }, 2200);
+  }
+
+  componentWillUnmount() {
+    clearInterval(this._t);
+  }
+
+  renderVals() {
+    const palette = this.props.palette || ['#1f6f52', '#c9793d'];
+    const forest = palette[0] || '#1f6f52';
+    const terra = palette[1] || '#c9793d';
+    const ink = '#20281f';
+    const cream = '#faf6f0';
+    const isBusiness = this.state.audience === 'business';
+
+    const colors = {
+      forest, terra, ink, cream,
+      creamAlt: '#f4efe8',
+      softOrange: '#fdf1e2',
+      softGray: '#f1f0ec',
+      discD: '#d1392c',
+      discI: '#eab308',
+      discS: '#2f8fd1',
+      discC: '#3f9142',
+    };
+
+    const discGradient = `linear-gradient(90deg, ${colors.discD}, ${colors.discI}, ${colors.discS}, ${colors.discC})`;
+
+    // Provisional mini-report content — will be refined once DISC documentation is shared.
+    const businessValueProps = [
+      {
+        headline: 'Contrata mejor: te decimos si el candidato hace match.',
+        desc: 'Las entrevistas dicen mucho — pero no muestran lo que la ciencia del comportamiento sí puede ver. Nuestro test DISC revela la tendencia temperamental real de cada candidato, y si esa tendencia encaja con el rol que necesitas cubrir.',
+        mockupWidth: 620,
+        hasMatchReport: true, hasBadgeHeader: false, hasLines: false, hasVerdict: false,
+        matchName: 'Isabela Salinas', matchPerfil: 'SI',
+        matchBadgeLabel: 'MATCH DE CONTRATACIÓN', hasRoleLine: true,
+        matchRoleLine: 'Rol: Abogado laboral en firma privada',
+        redFlags: [
+          { label: 'Resistencia al estrés', text: 'Puede abrumarse con el ritmo laboral en entornos de alta presión, como es lo habitual normales en las firmas de abogados.' },
+          { label: 'Falta de detalle', text: 'Muy delicado para un trabajo que requiere detalle en la documentación. ' },
+        ],
+        greenFlags: [
+          { label: 'Alta empatía', text: 'Esto ayuda para hacer sentir al defendido con alguien que comprende sus dolores.' },
+          { label: 'Persuasión alta', text: 'Puede convencer con facilidad a jueces, clientes y contrapartes.' },
+        ],
+      },
+      {
+        headline: 'Nunca vuelvas a enfrentarte solo a una conversación difícil.',
+        desc: 'Pregunta cualquier situación relacionada con la gestión de personas y recibe una guía práctica para actuar con seguridad, empatía y efectividad.',
+        mockupWidth: 560,
+        hasMatchReport: false, hasBadgeHeader: false, hasLines: false, hasVerdict: false,
+        hasChatMockup: true,
+        chatQuestion: '¿Dame un ejemplo concreto de cómo debería darle a entender a Felipe que debe comprometerse a revisar a tiempo los informes de las demás áreas?',
+        chatAnswerIntro: 'Felipe tiene un perfil S — necesita seguridad y tiempo, no presión repentina. Prueba con esto:',
+        chatAnswerPoints: [
+          '"Felipe, necesito que los informes queden revisados antes del viernes — ¿qué necesitas de mi parte para lograrlo sin contratiempos?"',
+          'Avísale con anticipación: los cambios o plazos de último momento lo bloquean.',
+          'Enmárcalo como un compromiso con el equipo, no como una exigencia personal.',
+        ],
+        chatClosing: 'Gracias, así no se sentirá presionado.',
+      },
+      {
+        headline: 'El verdadero manual para saber cómo trabajar con cada persona de tu equipo.',
+        desc: 'Cada perfil te dice cómo persuadir, cómo manejar el desacuerdo y cómo delegar tareas — de una forma que en verdad le llegue a esa persona.',
+        mockupWidth: 620,
+        hasMatchReport: false, hasBadgeHeader: false, hasLines: false, hasVerdict: false,
+        hasProfileTable: true,
+        tableName: 'Marcus Rivera', tablePerfil: 'ID',
+        tableBadgeLabel: 'CÓMO TRABAJAR', tableIconA: colors.discI, tableIconB: colors.discD,
+        colHeaderA: 'I', colHeaderB: 'D',
+        tableRows: [
+          { label: '¿CÓMO DIRIGIR?', colA: 'Reconocimiento del grupo: consulta ideas y reconoce sus esfuerzos.', colB: 'Metas y resultados: comunica el qué y deja que él controle el cómo.', blurFilter: 'none' },
+          { label: '¿CÓMO PERSUADIR?', colA: 'Pregunta clave: ¿QUIÉN? Comunica emoción y comparte testimonios.', colB: 'Pregunta clave: ¿QUÉ? Enfócate en los resultados y beneficios.', blurFilter: 'blur(5px)' },
+          { label: '¿CÓMO ESTAR EN DESACUERDO?', colA: 'Concuerda con su visión y dale tiempo; se le pasa rápido.', colB: 'Concuerda con sus metas y cuestiona: "¿has considerado otras alternativas?"', blurFilter: 'blur(5px)' },
+        ],
+      },
+      {
+        headline: '"Resultados que se leen en 30 segundos, no en 30 minutos."',
+        desc: 'Cero jerga difícil de descifrar. Traducimos el resultado a lo único que te importa: ¿contrato o no contrato?',
+        mockupWidth: 620,
+        hasMatchReport: false, hasBadgeHeader: false, hasLines: false, hasVerdict: false,
+        hasProfileTable: true,
+        tableName: 'Vanessa Cs', tablePerfil: 'CS',
+        tableBadgeLabel: 'RESUMEN PERSONA', tableIconA: colors.discC, tableIconB: colors.discS,
+        colHeaderA: 'C', colHeaderB: 'S',
+        tableRows: [
+          { label: 'PUNTOS FUERTES', colA: 'Calidad y precisión al analizar los datos.', colB: 'Dones sociales; buen miembro de equipo.', blurFilter: 'none' },
+          { label: 'TOMA DE DECISIONES', colA: 'Indeciso; necesita sopesar mucha evidencia.', colB: 'Decide lento, considerando el consejo de los demás.', blurFilter: 'blur(5px)' },
+          { label: 'COMPORTAMIENTO BAJO PRESIÓN', colA: 'Rehúye.', colB: 'Cede.', blurFilter: 'blur(5px)' },
+        ],
+      },
+    ];
+
+    const personValueProps = [
+      {
+        headline: 'Tu manual de fábrica.',
+        desc: 'Conoce la ciencia del comportamiento detrás de tu piloto automático: entiende qué detona esas reacciones que ni tú decides, como ponerte a la defensiva ante un trato brusco o huirle al conflicto. Así tus fortalezas rinden más y tus reacciones dejan de repetirse sin darte cuenta.',
+        mockupWidth: 620,
+        hasMatchReport: false, hasBadgeHeader: false, hasLines: false, hasVerdict: false,
+        hasProfileTable: true,
+        tableName: 'Camila Torres', tablePerfil: 'DI',
+        tableBadgeLabel: 'TU MANUAL DE FÁBRICA', tableIconA: colors.discD, tableIconB: colors.discI,
+        colHeaderA: 'D', colHeaderB: 'I',
+        tableRows: [
+          { label: 'PUNTOS FUERTES', colA: 'Decisiva y orientada a resultados.', colB: 'Entusiasta; inspira y moviliza a otros.', blurFilter: 'none' },
+          { label: 'MOTIVADO POR', colA: 'Ganar, avanzar y tener el control.', colB: 'Reconocimiento social; ser el centro de la conversación.', blurFilter: 'blur(5px)' },
+        ],
+      },
+      {
+        headline: 'Conoce tu talón de Aquiles antes de que otro te lo señale.',
+        desc: 'Todo el mundo tiene un punto ciego. El nuestro te dice cuál es el tuyo.',
+        mockupWidth: 560,
+        hasMatchReport: true, hasBadgeHeader: false, hasLines: false, hasVerdict: false,
+        matchName: 'Camila Torres', matchPerfil: 'DI',
+        matchBadgeLabel: 'PUNTO CIEGO', hasRoleLine: false,
+        redFlags: [
+          { label: 'Impaciencia', text: 'Puede pasar por encima de las opiniones de otros cuando quiere avanzar rápido.' },
+        ],
+        greenFlags: [
+          { label: 'Empuje natural', text: 'Contagia energía y hace que las cosas avancen incluso cuando el equipo duda.' },
+        ],
+      },
+      {
+        headline: 'De "tengo cualidades" a "sé cuáles son y cómo usarlas."',
+        desc: 'No es otro test de una página. Es la diferencia entre saber que se te da bien algo y saber exactamente en qué rol.',
+        mockupWidth: 620,
+        hasMatchReport: false, hasBadgeHeader: false, hasLines: false, hasVerdict: false,
+        hasProfileTable: true,
+        tableName: 'Camila Torres', tablePerfil: 'DI',
+        tableBadgeLabel: 'CÓMO APLICARLO', tableIconA: colors.discD, tableIconB: colors.discI,
+        colHeaderA: 'D', colHeaderB: 'I',
+        tableRows: [
+          { label: 'DÓNDE BRILLAS', colA: 'Roles con autonomía y metas claras que puedas atacar rápido.', colB: 'Roles de cara al público: ventas, alianzas, vocería.', blurFilter: 'none' },
+          { label: 'ROL IDEAL', colA: 'Liderar iniciativas nuevas con libertad de ejecución.', colB: 'Representar, negociar y construir relaciones clave.', blurFilter: 'blur(5px)' },
+        ],
+      },
+    ];
+
+    const layoutRows = (arr) => arr.map((item, i) => ({
+      ...item,
+      number: i + 1,
+      rowDirection: i % 2 === 0 ? 'row' : 'row-reverse',
+      borderTop: i === 0 ? 'none' : '1px solid rgba(31,42,36,0.08)',
+      rowPaddingTop: i === 0 ? 8 : 60,
+    }));
+
+    const discFacts = [
+      { stat: '~75%', desc: 'de las Fortune 500 usan DISC para contratar, liderar y desarrollar equipos.' },
+      { stat: '+50M', desc: 'personas evaluadas en el mundo — uno de los modelos más estudiados.' },
+      { stat: '1928', desc: 'Creado por William Moulton Marston, psicólogo de Harvard.' },
+      { stat: '4 rasgos', desc: 'Solo D-I-S-C: simple de entender y aplicar.' },
+    ];
+
+    const WAITLIST_URL = 'https://docs.google.com/forms/d/e/1FAIpQLScA8apTL9ydDfxIYbQibrjhT1TpzY8QM49QB-MxW6EepYkh1A/viewform?usp=dialog';
+
+    const businessOtherProducts = [
+      {
+        name: 'Coaching Ejecutivo DISC',
+        copy: 'Coaching individual basado en tu perfil temperamental, para pulir lo que te frena y potenciar lo que ya se te da bien.',
+        buttons: [
+          { label: 'Apúntate a la waiting list', href: WAITLIST_URL, target: '_blank', bg: forest, textColor: 'white', border: forest },
+        ],
+      },
+      {
+        name: 'Workshops y Seminarios DISC para empresas',
+        copy: 'Entrena a tu equipo para que se autoconozca y puedan identificar cómo mejorar cómo trabajan con otros, o dales herramientas para que puedan entender cómo vender mejor desde las ciencias del comportamiento.',
+        buttons: [
+          { label: 'Ver propuesta (web)', href: 'https://jdavidduquek1218.github.io/seminariodisc/', target: '_blank', bg: 'transparent', textColor: ink, border: 'rgba(31,42,36,0.18)' },
+          { label: 'Apúntate a la waiting list', href: WAITLIST_URL, target: '_blank', bg: forest, textColor: 'white', border: forest },
+        ],
+      },
+      {
+        name: 'Libro DISC (PDF / Kindle)',
+        copy: 'Todo el modelo DISC explicado a fondo, en un solo libro. Disponible en PDF y Kindle.',
+        buttons: [
+          { label: 'Ver landing del libro', href: 'https://librodisc.onrender.com/', target: '_blank', bg: 'transparent', textColor: ink, border: 'rgba(31,42,36,0.18)' },
+          { label: 'Apúntate a la waiting list', href: WAITLIST_URL, target: '_blank', bg: forest, textColor: 'white', border: forest },
+        ],
+      },
+    ];
+
+    const personOtherProducts = [
+      {
+        name: 'Coaching personal DISC',
+        copy: 'Sesiones individuales basadas en tu perfil temperamental, para pulir lo que te frena y potenciar lo que ya se te da bien.',
+        buttons: [
+          { label: 'Apúntate a la waiting list', href: WAITLIST_URL, target: '_blank', bg: forest, textColor: 'white', border: forest },
+        ],
+      },
+      {
+        name: 'Masterclass virtual para personas',
+        copy: 'Aprende a autoconocerte y a entender cómo mejorar la forma en que te relacionas y trabajas con otros, como autoliderarte, potenciar tus fortalezas y gestionar tus debilidades, desde las ciencias del comportamiento.',
+        buttons: [
+          { label: 'Apúntate a la waiting list', href: WAITLIST_URL, target: '_blank', bg: forest, textColor: 'white', border: forest },
+        ],
+      },
+      {
+        name: 'Libro en PDF / Kindle',
+        copy: 'Entendiendo el perfil temperamental: todo el modelo DISC explicado a fondo, en un solo libro.',
+        buttons: [
+          { label: 'Ver landing del libro', href: 'https://librodisc.onrender.com/', target: '_blank', bg: 'transparent', textColor: ink, border: 'rgba(31,42,36,0.18)' },
+          { label: 'Apúntate a la waiting list', href: WAITLIST_URL, target: '_blank', bg: forest, textColor: 'white', border: forest },
+        ],
+      },
+    ];
+
+    const plans = [
+      {
+        name: 'Gratis', price: '$0', per: '', hasPrice: true, audience: 'Persona que quiere conocerse',
+        features: ['Descripción de tu combinación temperamental', 'Resumen de fortalezas y debilidades'],
+        cta: 'Haz tu test gratis', highlighted: false,
+        cardStyle: '', ctaBg: 'transparent', ctaTextColor: ink, ctaBorder: 'rgba(31,42,36,0.18)',
+        hasSections: false, sections: [],
+        ctaHref: '#cta-final', ctaTarget: '_self',
+      },
+      isBusiness ? {
+        name: 'Informe Premium', price: '$89,900', per: 'pago único', hasPrice: true, audience: 'Para una decisión de contratación puntual',
+        features: ['Match de contratación vs. el rol (banderas rojas y verdes)', 'Manual completo: cómo es y cómo se trabaja con esta persona', 'Entrega en PDF descargable'],
+        cta: 'Comprar informe', highlighted: true,
+        cardStyle: `border-color:${forest}; box-shadow:0 20px 44px -20px rgba(31,42,36,0.28); transform:scale(1.03);`,
+        ctaBg: forest, ctaTextColor: 'white', ctaBorder: forest,
+        ctaHref: '#cta-final', ctaTarget: '_self',
+        priceBadge: 'Precio de lanzamiento',
+        hasSections: true,
+        sections: [
+          {
+            key: 'comoEs', label: 'Ver detalle — Cómo es la persona',
+            open: this.state.disclosureOpen.comoEs, chevron: this.state.disclosureOpen.comoEs ? '−' : '+',
+            toggle: () => this.toggleDisclosure('comoEs'),
+            items: [
+              'Descripción básica y motivación', 'Estilo de liderazgo que necesita recibir', 'Valor que aporta al equipo',
+              'Puntos fuertes y débiles', 'Toma de decisiones', 'Comportamiento bajo presión', 'Uso del tiempo',
+              'Estilo de comunicación', 'Respuesta emocional', 'Situación ideal', 'Qué acepta o rechaza',
+              'Qué necesita que otros le provean', 'Áreas de crecimiento personal', 'Necesidades interpersonales',
+            ],
+          },
+          {
+            key: 'comoTrabaja', label: 'Ver detalle — Cómo se trabaja con ella',
+            open: this.state.disclosureOpen.comoTrabaja, chevron: this.state.disclosureOpen.comoTrabaja ? '−' : '+',
+            toggle: () => this.toggleDisclosure('comoTrabaja'),
+            items: [
+              'Cómo relacionarse, persuadirla y dirigirla', 'Cómo manejar el desacuerdo según su perfil temperamental',
+              'Fricciones y causas de tensión con otros temperamentos', 'Sugerencias de flexibilidad según el perfil de los demás',
+            ],
+          },
+        ],
+      } : {
+        name: 'Informe Premium', price: '$89,900', per: 'pago único', hasPrice: true, audience: 'Tu manual de instrucciones de cómo autoliderarte',
+        features: ['Manual completo: cómo soy y cómo trabajar conmigo', 'Entrega en PDF descargable'],
+        cta: 'Comprar informe', highlighted: true,
+        cardStyle: `border-color:${forest}; box-shadow:0 20px 44px -20px rgba(31,42,36,0.28); transform:scale(1.03);`,
+        ctaBg: forest, ctaTextColor: 'white', ctaBorder: forest,
+        ctaHref: '#cta-final', ctaTarget: '_self',
+        priceBadge: 'Precio de lanzamiento',
+        hasSections: true,
+        sections: [
+          {
+            key: 'comoEs', label: 'Ver detalle — Cómo soy',
+            open: this.state.disclosureOpen.comoEs, chevron: this.state.disclosureOpen.comoEs ? '−' : '+',
+            toggle: () => this.toggleDisclosure('comoEs'),
+            items: [
+              'Mi descripción básica y qué me motiva', 'El estilo de liderazgo que necesito recibir', 'El valor que aporto al equipo',
+              'Mis puntos fuertes y débiles', 'Cómo tomo decisiones', 'Cómo me comporto bajo presión', 'Cómo uso mi tiempo',
+              'Mi estilo de comunicación', 'Mi respuesta emocional', 'Mi situación ideal de trabajo', 'Qué acepto y qué rechazo',
+              'Qué necesito que otros me provean', 'Mis áreas de crecimiento personal', 'Los roles en los que puedo ser mejor',
+            ],
+          },
+          {
+            key: 'comoTrabaja', label: 'Ver detalle — Cómo trabajar conmigo',
+            open: this.state.disclosureOpen.comoTrabaja, chevron: this.state.disclosureOpen.comoTrabaja ? '−' : '+',
+            toggle: () => this.toggleDisclosure('comoTrabaja'),
+            items: [
+              'Cómo relacionarse conmigo, persuadirme y dirigirme', 'Cómo manejar el desacuerdo según mi perfil temperamental',
+              'Fricciones y causas de tensión con otros temperamentos', 'Sugerencias de flexibilidad según el perfil de las personas con las que trabajo',
+            ],
+          },
+        ],
+      },
+    ];
+
+    if (isBusiness) {
+      plans.push({
+        name: 'Plataforma', price: '', per: '', hasPrice: false, priceLine: 'Solicita tu cotización', audience: 'Equipos y RRHH con contratación activa',
+        features: ['Informes Premium con descuento por cantidad', 'Histórico de perfiles evaluados y contratados', 'Dashboard de equipo', 'Chat de IA para gestión de equipo', 'Más asientos para administradores de tu equipo en la plataforma'],
+        cta: 'Habla con nosotros', highlighted: false,
+        cardStyle: '', ctaBg: 'transparent', ctaTextColor: ink, ctaBorder: 'rgba(31,42,36,0.18)',
+        hasSections: false, sections: [],
+        ctaHref: 'https://docs.google.com/forms/d/e/1FAIpQLScA8apTL9ydDfxIYbQibrjhT1TpzY8QM49QB-MxW6EepYkh1A/viewform?usp=dialog', ctaTarget: '_blank',
+      });
+    }
+
+    plans.push({
+      name: 'Marca blanca', price: '', per: '', priceBadge: '', hasPrice: false,
+      audience: '¿Eres consultor, coach o reclutador?',
+      priceLine: 'Cupos limitados de lanzamiento',
+      features: [
+        'Informes DISC con match de rol bajo tu propia marca',
+        'Tú pones tu logo y tu firma; nosotros ponemos la plataforma',
+        'Convierte DISCmaker en una línea de negocio para tu práctica',
+      ],
+      cta: 'Déjanos tu información', highlighted: false,
+      cardStyle: '', ctaBg: 'transparent', ctaTextColor: ink, ctaBorder: 'rgba(31,42,36,0.18)',
+      hasSections: false, sections: [],
+      ctaHref: 'https://docs.google.com/forms/d/e/1FAIpQLScA8apTL9ydDfxIYbQibrjhT1TpzY8QM49QB-MxW6EepYkh1A/viewform', ctaTarget: '_blank',
+    });
+
+    return {
+      colors,
+      discGradient,
+      currentWord: WORDS[this.state.wordIndex],
+      isBusiness,
+      setBusiness: () => this.setState({ audience: 'business' }),
+      setPerson: () => this.setState({ audience: 'person' }),
+      businessBg: isBusiness ? forest : 'transparent',
+      businessColor: isBusiness ? 'white' : ink,
+      personBg: !isBusiness ? forest : 'transparent',
+      personColor: !isBusiness ? 'white' : ink,
+
+      kicker: isBusiness ? 'LA SEÑAL YA ESTABA AHÍ' : 'DEJA DE REPETIR EL MISMO ERROR',
+      introText: isBusiness
+        ? 'Las entrevistas dicen muchas cosas — pero no muestran lo que está oculto. Nuestro test DISC revela la tendencia temperamental real de un candidato, y si esa tendencia hace match con el rol que necesitas cubrir.'
+        : 'Ya hiciste un test gratis. Lo leíste una vez y no supiste qué hacer con él. Este no es otro test para archivar — es un mapa que usas cada vez que lo necesitas.',
+
+      valueProps: layoutRows(isBusiness ? businessValueProps : personValueProps),
+
+      discFacts,
+
+      ctaSub: isBusiness ? 'Sin tarjeta. Resultado en minutos.' : '10 minutos. Sin tarjeta.',
+      ctaMicro: isBusiness ? 'Gratis para empezar · Sin tarjeta requerida' : 'Gratis para empezar · Sin tarjeta requerida',
+
+      mainPlans: plans.slice(0, -1),
+      whiteLabelPlan: plans[plans.length - 1],
+      otherProducts: isBusiness ? businessOtherProducts : personOtherProducts,
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html><head><style>body{margin:0;background:#fff}</style></head>
+<body>
+<div id="out"></div>
+<script type="module">
+import * as pdfjsLib from 'https://cdn.jsdelivr.net/npm/pdfjs-dist@4.0.379/build/pdf.min.mjs';
+pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdn.jsdelivr.net/npm/pdfjs-dist@4.0.379/build/pdf.worker.min.mjs';
+
+async function run() {
+  const resp = await fetch('uploads/1. Informe del DISC ALEXANDER OSSA.pdf');
+  const buf = new Uint8Array(await resp.arrayBuffer());
+  const doc = await pdfjsLib.getDocument({ data: buf }).promise;
+  window.__numPages = doc.numPages;
+  const out = document.getElementById('out');
+  for (let i = 1; i <= doc.numPages; i++) {
+    const page = await doc.getPage(i);
+    const viewport = page.getViewport({ scale: 1.4 });
+    const canvas = document.createElement('canvas');
+    canvas.width = viewport.width;
+    canvas.height = viewport.height;
+    canvas.style.display = 'block';
+    canvas.style.marginBottom = '20px';
+    const ctx = canvas.getContext('2d');
+    await page.render({ canvasContext: ctx, viewport }).promise;
+    out.appendChild(canvas);
+  }
+  window.__done = true;
+}
+run();
+</script>
+</body></html>
